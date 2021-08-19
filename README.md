@@ -4,3 +4,10 @@
 Игнорируются файлы содержащие в имени .tfstate.
 И игнорируются сами файлы crash.log, override.tf, override.tf.json, .terraformrc, terraform.rc
 
+
+
+
+
+
+
+new line
