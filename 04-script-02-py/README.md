@@ -53,12 +53,12 @@ if a != ip[0]:
 elif a == ip[0]:
     print('google.com -', a)
 if d != ip[1]:
-    print(f'[ERROR] google.com IP mismatch: {d} {ip[1]}')
+    print(f'[ERROR] drive.google.com IP mismatch: {d} {ip[1]}')
     ip[1] = d
 elif d == ip[1]:
     print('drive.google.com -', d)
 if m != ip[2]:
-    print(f'[ERROR] google.com IP mismatch: {m} {ip[2]}')
+    print(f'[ERROR] mail.google.com IP mismatch: {m} {ip[2]}')
     ip[2] = m
 elif m == ip[2]:
     print('mail.google.com -', m)
