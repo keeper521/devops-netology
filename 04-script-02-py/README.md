@@ -36,34 +36,23 @@ for result in result_os.split('\n'):
 ```python
 
 #!/usr/bin/env python3
-
-import socket, os
-
-a = socket.gethostbyname('google.com')
-d = socket.gethostbyname('drive.google.com')
-m = socket.gethostbyname('mail.google.com')
-
-bash_command = 'cat ip.log'
-ip_log = os.popen(bash_command).read()
-ip=list(ip_log.split())
-
-if a != ip[0]:
-    print(f'[ERROR] google.com IP mismatch: {a} {ip[0]}')
-    ip[0] = a
-elif a == ip[0]:
-    print('google.com -', a)
-if d != ip[1]:
-    print(f'[ERROR] drive.google.com IP mismatch: {d} {ip[1]}')
-    ip[1] = d
-elif d == ip[1]:
-    print('drive.google.com -', d)
-if m != ip[2]:
-    print(f'[ERROR] mail.google.com IP mismatch: {m} {ip[2]}')
-    ip[2] = m
-elif m == ip[2]:
-    print('mail.google.com -', m)
-
-with open('ip.log', 'w') as file:
-    for z in ip:
+import socket
+old_ip = []
+adress = ['google.com', 'drive.google.com', 'mail.google.com']
+with open('ip_log', 'r') as file:
+    for old in file:
+        old_ip = (old.split())
+a = 0
+while a < len(adress):
+    ip = socket.gethostbyname(adress[a])
+    if old_ip[a] != ip:
+        print(f'[ERROR] {adress[a]} IP mismatch: {old_ip[a]} {ip}')
+        old_ip[a] = ip
+    elif old_ip[a] == ip:
+        print(f'{adress[a]} - {ip}')
+        old_ip[a] = ip
+    a += 1
+with open('ip_log', 'w') as file:
+    for z in old_ip:
         file.writelines(z + ' ')
 ```
