@@ -40,3 +40,4 @@ Seq Scan on clients  (cost=0.00..18.10 rows=806 width=72)
 ### 6 ###
 pg_dump -U postgres test_db > /backup/test_db.dump  
 CREATE DATABASE test_db
+pg_dump -U postgres test_db < /backup/test_db.dump
