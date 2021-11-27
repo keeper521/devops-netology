@@ -15,3 +15,19 @@ docker run --name postgres_12 -p 5432:5432 -v /home/keeper/docker/base:/var/lib/
 ### 3 ###
 ![2](https://user-images.githubusercontent.com/88678440/143541131-84f8dcce-f187-4c9a-9fc2-2ce39e66ccb3.JPG)
 ![1](https://user-images.githubusercontent.com/88678440/143541133-4140d950-a7f9-4df8-9266-2a1c1648c4a6.JPG)
+
+### 4 ###
+update clients   
+set заказ = 3   
+where фамилия = 'Иванов Иван Иванович'  
+
+update clients   
+set заказ = 4   
+where фамилия = 'Петров Петр Петрович'  
+
+update clients   
+set заказ = 5   
+where фамилия = 'Иоганн Себастьян Бах'  
+
+select * from clients  
+where заказ is not null  
