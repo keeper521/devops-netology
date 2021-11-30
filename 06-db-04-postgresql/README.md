@@ -17,3 +17,6 @@ CREATE RULE orders_insert_1 AS ON INSERT TO orders WHERE (price > 499) DO INSTEA
 CREATE RULE orders_insert_2 AS ON INSERT TO orders WHERE (price <= 499) DO INSTEAD INSERT INTO orders_2 VALUES (NEW.*)  
 
 Да можно было изначально исключить ручное разбиение написанием условия заполнения талиц на основе правила.
+
+### 4 ###
+CREATE TABLE public.orders (id integer NOT NULL, title character varying(80) NOT NULL UNIQUE, price integer DEFAULT 0);  
