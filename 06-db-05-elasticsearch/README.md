@@ -37,3 +37,23 @@ RUN adduser elasticsearch
 ### 2 ###
 *
  ![1](https://user-images.githubusercontent.com/88678440/144754012-f75c10b9-4b8c-469b-8ff6-1ae372509c25.JPG)
+* Часть индексов перешла в состояние yellow потому, что у них прописаны шарды, а их нет.
+
+### 3 ###
+*
+```
+PUT /_snapshot/netology_backup
+{
+  "type": "fs",
+  "settings": {
+    "location": "/elasticsearch-7.15.2/snapshot/"
+  }
+}
+```
+```
+{
+  "acknowledged" : true
+}
+```
+*
+ ![3](https://user-images.githubusercontent.com/88678440/144755356-075086f9-437e-46ec-a987-17a1ebedb9c1.JPG)
