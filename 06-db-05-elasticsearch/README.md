@@ -64,6 +64,9 @@ PUT /_snapshot/netology_backup
 *  
 ![5](https://user-images.githubusercontent.com/88678440/144755584-04246b58-1815-4e9e-ba20-35af5d584298.JPG)  
 
-*   
+* 
+```
+POST /_snapshot/netology_backup/snapshot_1/_restore
+```
 ![6](https://user-images.githubusercontent.com/88678440/144756714-879ba123-34ec-442f-a892-b1f8b6e282a8.JPG)  
 
