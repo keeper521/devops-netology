@@ -55,11 +55,11 @@ PUT /_snapshot/netology_backup
   "acknowledged" : true
 }
 ```
-*
+*  
  ![3](https://user-images.githubusercontent.com/88678440/144755356-075086f9-437e-46ec-a987-17a1ebedb9c1.JPG)
-* 
+*   
  ![4](https://user-images.githubusercontent.com/88678440/144755488-ce5d8489-acc5-4986-8201-ef450f432071.JPG)
-*
+*  
  ![5](https://user-images.githubusercontent.com/88678440/144755584-04246b58-1815-4e9e-ba20-35af5d584298.JPG)
-* 
+*   
  ![6](https://user-images.githubusercontent.com/88678440/144756714-879ba123-34ec-442f-a892-b1f8b6e282a8.JPG)
