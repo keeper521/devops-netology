@@ -5,4 +5,7 @@
 * Да будут использованы оба средства так как для управления конфигурацией больше подходит Ansible, а для инициализации ресурсов больше подходит Terraform.
 
 ### 2 ###
+![1](https://user-images.githubusercontent.com/88678440/145943386-8244942b-855b-44fc-aaa3-17429ed03622.JPG)
 
+### 3 ###
+![2](https://user-images.githubusercontent.com/88678440/145943428-0aa52dea-8de7-4b8a-84bb-ec1daa4885d7.JPG)
