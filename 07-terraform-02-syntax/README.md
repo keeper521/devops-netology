@@ -10,4 +10,4 @@ secret_key     ****************Tyr0              env
 ```
 ### 2 ###
 * Свой ami образ можно создать при помощи Packer.
-* https://github.com/keeper521/devops-netology/tree/main/07-terraform-02-syntax/terrafotm
+* https://github.com/keeper521/devops-netology/tree/main/07-terraform-02-syntax/terraform
