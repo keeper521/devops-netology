@@ -1,5 +1,9 @@
 ### 1 ###
+![1](https://user-images.githubusercontent.com/88678440/147405551-742a1c05-d838-4799-97a1-82842cc07143.JPG)
+
 ### 2 ###
+![2](https://user-images.githubusercontent.com/88678440/147405555-83816976-893e-4c57-820b-f3b6a7c16c93.JPG)
+
 ```
 keeper@Docker:~/terraform$ terraform plan
 
