@@ -1,0 +1,20 @@
+workflows:
+  stage:
+    plan:
+      steps:
+      - plan:
+          extra_args: ["-lock=false"]
+    apply:
+      steps:
+      - apply
+  prod:
+    plan:
+      steps:
+      - plan:
+          extra_args: ["-lock=false"]
+    apply:
+      steps:
+      - apply
+projects:
+  autoplan:
+    when_modified: ["*.tf", "../modules/**.tf"]
