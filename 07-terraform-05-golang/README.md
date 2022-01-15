@@ -33,3 +33,18 @@ func main() {
 }
 ```
 * 
+```
+package main
+
+import "fmt"
+
+func main() {
+    x := 1
+    for x <= 100 {
+        x += 1
+        if x%3 == 0 {
+            fmt.Println(x)
+            }
+        }
+}
+```
