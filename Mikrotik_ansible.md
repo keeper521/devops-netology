@@ -19,8 +19,9 @@
 #                 - /ip service set api disabled=yes
 #                 - /ip service set api-ssl disabled=yes
 #                 - /ip service set www-ssl disabled=yes
-      register: system_print
+      register: system_print 
 
+# Вывод на экран результата выполнения если необходимо смотреть что выводит консоль после выполнения команды.
     - name: debug print
       debug: var=system_print.stdout_lines
 ```
