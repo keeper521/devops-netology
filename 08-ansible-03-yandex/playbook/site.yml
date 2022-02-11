@@ -93,7 +93,7 @@
         chdir: /usr/share/filebeat/bin
       register: filebeat_modules
       changed_when: filebeat_modules.stdout != 'Module system is already enable'
-    - name: Load filebeat dashboard
+    - name: Load Kibana dashboard
       become: true
       command: 
         cmd: filebeat setup
