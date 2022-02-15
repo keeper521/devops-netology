@@ -1,0 +1,5 @@
+---
+filebeat_version: "7.14.0"
+filebeat_install_type: remote
+Filebeat_elastic_addr: 10.0.0.12
+Filebeat_kibana_addr: 10.0.0.33

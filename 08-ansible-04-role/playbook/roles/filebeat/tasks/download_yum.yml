@@ -1,0 +1,15 @@
+---
+- name: "Download Filebeat rpm"
+  get_url:
+    url: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-x86_64.rpm"
+    dest: "files/filebeat-{{ filebeat_version }}-x86_64.rpm"
+    validate_certs: false
+  register: download_filebeat
+  delegate_to: localhost
+  until: download_filebeat is succeeded
+  when: filebeat_install_type == 'remote'
+- name: Copy filebeat to managed node
+  copy:
+    src: "files/filebeat-{{ filebeat_version }}-x86_64.rpm"
+    mode: 0755
+    dest: "/tmp/filebeat-{{ filebeat_version }}-x86_64.rpm"
