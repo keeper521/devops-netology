@@ -1,0 +1,10 @@
+---
+elastic:
+  hosts:
+    84.201.165.226
+kibana:
+  hosts: 
+    84.201.178.242
+filebeat:
+  hosts: 
+    51.250.23.116
