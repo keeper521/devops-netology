@@ -1,0 +1,15 @@
+---
+- name: "Download Elasticsearch's rpm"
+  get_url:
+    url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
+    dest: "files/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
+    validate_certs: false
+  register: download_elastic
+  delegate_to: localhost
+  until: download_elastic is succeeded
+  when: elastic_install_type == 'remote'
+- name: Copy Elasticsearch to managed node
+  copy:
+    src: "files/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
+    mode: 0755
+    dest: "/tmp/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"

@@ -1,0 +1,7 @@
+---
+- name: Install Elasticsearch
+  become: true
+  apt:
+    deb: "/tmp/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
+    state: present
+  notify: restart Elasticsearch
