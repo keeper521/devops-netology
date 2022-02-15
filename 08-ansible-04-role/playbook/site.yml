@@ -1,0 +1,16 @@
+---
+
+- name: Install Kibana
+  hosts: kibana
+  roles: 
+    - kibana
+ 
+- name: Install Elasticsearch
+  hosts: elastic    
+  roles: 
+    - elastic
+
+- name: Install Filebeat
+  hosts: filebeat
+  roles: 
+    - filebeat
