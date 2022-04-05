@@ -11,3 +11,4 @@ node_filesystem_free_bytes{mountpoint="/",fstype!="rootfs"}
 ## 3 ##
 ![3](https://user-images.githubusercontent.com/88678440/161737059-0a5948e1-66a9-4f16-9985-17f0e6171328.JPG)
 ## 4 ##
+[Файл](./dashboard.json)
