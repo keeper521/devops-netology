@@ -2,24 +2,19 @@ all:
   hosts:
     cp-1:
       ansible_host: 84.252.143.39
-      ip: 84.252.143.39
-      access_ip: 84.252.143.39
+      ansible user: keeper
     node-1:
       ansible_host: 84.252.138.8
-      ip: 84.252.138.8
-      access_ip: 84.252.138.8
+      ansible user: keeper
     node-2:
       ansible_host: 84.201.143.241
-      ip: 84.201.143.241
-      access_ip: 84.201.143.241
+      ansible user: keeper
     node-3:
       ansible_host: 84.252.138.111
-      ip: 84.252.138.111
-      access_ip: 84.252.138.111
+      ansible user: keeper
     node-4:
       ansible_host: 84.252.137.237
-      ip: 84.252.137.237
-      access_ip: 84.252.137.237
+      ansible user: keeper
   children:
     kube_control_plane:
       hosts:
@@ -39,3 +34,4 @@ all:
         kube_node:
     calico_rr:
       hosts: {}
+
