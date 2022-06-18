@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: pg
+  name: pg
+  namespace: default
+spec:
+  replicas: 1
+  serviceName: postgres
+  selector:
+    matchLabels:
+      app: pg
+  template:
+    metadata:
+      labels:
+        app: pg
+    spec:
+      containers:
+        - name: postgres
+          image: keeper521/postgres:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 5432
+#          envFrom:
+#            - configMapRef:
+#                name: postgres-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pg
+  namespace: default
+spec:
+  ports:
+    - name: pg
+      port: 5432
+  selector:
+    app: pg
+
