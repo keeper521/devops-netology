@@ -19,13 +19,13 @@ spec:
         - name: frontend 
           image: keeper521/frontend:latest
           imagePullPolicy: IfNotPresent
-          command: ["/bin/sleep", "3650d"]
+#          command: ["/bin/sleep", "3650d"]
           ports:
           - containerPort: 8000
         - name: backend
           image: keeper521/backend:latest
           imagePullPolicy: IfNotPresent
-          command: ["/bin/sleep", "3650d"]
+#          command: ["/bin/sleep", "3650d"]
           ports:
           - containerPort: 9000
 
