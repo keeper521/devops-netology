@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backend
+  name: backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+       - name: backend
+         image: keeper521/backend:latest
+         imagePullPolicy: "Always"
+         ports:
+         - containerPort: 9000
+         env:
+         - name: DATABASE_URL
+           value: "postgres://postgres:postgres@db:5432/news"
+
+---
+apiVersion: v1    
+kind: Service
+metadata:
+  name: backend
+  namespace: default
+spec:
+  ports:
+    - name: backend
+      port: 9000
+  selector:
+    app: backend

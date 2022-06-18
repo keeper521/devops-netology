@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: frontend
+  name: frontend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend 
+          image: keeper521/frontend:latest
+          imagePullPolicy: "Always"
+          ports:
+          - containerPort: 8000
+          env:
+          - name: BASE_URL
+            value: "http://backend:9000"
+ 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: default
+spec:
+  ports:
+    - name: frontend
+      port: 8000
+  selector:
+    app: frontend
+    
+
