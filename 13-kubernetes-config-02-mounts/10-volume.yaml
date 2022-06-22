@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-int-volumes
+spec:
+  containers:
+    - name: frontend
+      image: nginx
+      volumeMounts:
+        - mountPath: "/static"
+          name: my-volume
+    - name: backend
+      image: centos:7
+      command: ["sleep", "3600"]
+      volumeMounts:
+        - mountPath: "/static"
+          name: my-volume
+  volumes:
+    - name: my-volume
+      emptyDir: {}
