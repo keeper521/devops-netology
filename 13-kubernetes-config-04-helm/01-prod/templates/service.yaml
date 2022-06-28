@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.application1.deployment.name }}
+  labels:
+    app: {{ .Values.application1.deployment.name }}
+  namespace: {{ .Values.application1.namespace }}
+spec:
+  ports:
+    - port: 8000
+      name: http
+  selector:
+    app: {{ .Values.application1.deployment.name }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.application2.deployment.name }}
+  labels:
+    app: {{ .Values.application2.deployment.name }}
+  namespace: {{ .Values.application2.namespace }}
+spec:
+  ports:
+    - port: 9000
+      name: http
+  selector:
+    app: {{ .Values.application2.deployment.name }}
+    
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.application3.deployment.name }}
+  labels:
+    app: {{ .Values.application3.deployment.name }}
+  namespace: {{ .Values.application3.namespace }}
+spec:
+  ports:
+    - port: 5432
+      name: http
+  selector:
+    app: {{ .Values.application3.deployment.name }}
