@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.application1.deployment.name }}-{{ .Release.Name }}"
+  labels:
+    app: "{{ .Values.application1.deployment.name }}-{{ .Release.Name }}"
+  namespace: {{ .Values.application1.namespace }}
+spec:
+  replicas: {{ .Values.application1.replicaCount }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.application1.deployment.name }}-{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.application1.deployment.name }}-{{ .Release.Name }}"
+    spec:
+      containers:
+        - name: "{{ .Values.application1.deployment.name }}-{{ .Release.Name }}"
+          image: "{{ .Values.application1.image.name }}:{{ .Values.application1.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: {{ .Values.application1.appPort }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.application1.container.resources | nindent 12 }}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.application2.deployment.name }}-{{ .Release.Name }}"
+  labels:
+    app: "{{ .Values.application2.deployment.name }}-{{ .Release.Name }}"
+  namespace: {{ .Values.application1.namespace }}
+spec:
+  replicas: {{ .Values.application2.replicaCount }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.application2.deployment.name }}-{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.application2.deployment.name }}-{{ .Release.Name }}"
+    spec:
+      containers:
+        - name: "{{ .Values.application2.deployment.name }}-{{ .Release.Name }}"
+          image: "{{ .Values.application2.image.name }}:{{ .Values.application2.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: {{ .Values.application2.appPort }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.application2.container.resources | nindent 12 }}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.application3.deployment.name }}-{{ .Release.Name }}"
+  labels:
+    app: "{{ .Values.application3.deployment.name }}-{{ .Release.Name }}"
+  namespace: {{ .Values.application1.namespace }}
+spec:
+  replicas: {{ .Values.application3.replicaCount }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.application3.deployment.name }}-{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.application3.deployment.name }}-{{ .Release.Name }}"
+    spec:
+      containers:
+        - name: "{{ .Values.application3.deployment.name }}-{{ .Release.Name }}"
+          image: "{{ .Values.application3.image.name }}:{{ .Values.application3.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: {{ .Values.application3.appPort }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.application3.container.resources | nindent 12 }}
