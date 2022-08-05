@@ -1,0 +1,72 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "data": {
+                "name": "netology.ru"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "creationTimestamp": "2022-08-05T06:22:45Z",
+                "name": "domain",
+                "namespace": "default",
+                "resourceVersion": "3116238",
+                "uid": "205bff18-8320-4aec-86fc-d66bae1d792d"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "data": {
+                "ca.crt": "-----BEGIN CERTIFICATE-----\nMIIC/jCCAeagAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl\ncm5ldGVzMB4XDTIyMDcxMDEwMTU1M1oXDTMyMDcwNzEwMTU1M1owFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMWV\necVurIyOYY+FS1gFf0Ppm6ZpuqH0uqdBVIIGmc4/BCm0IXA6RJDwQVtMnOqIDZQz\nEAe/7K7jDNrzZX/deMLwAcu4CEcYan4iZ7b7Nu9zt3f1mgMi6vRgajzPyh4P7prT\nEaaN22mygtQpw28bbPX5lyDXLPa5iDzMycJdkZzM5OTyA0dcTR1otOiPLG/K2GqP\nSMXeezbjTuwibNkl72jT05kPu3PFTNSuTVtbBw5gdyP6wVCASQvuAscmhpC8UBkU\njvG+zZZqNlZpdvChzoCPFi5dZRS/bDLwDkY6Go6G6WT37s4XAw1l1g4Kkb1Lbi7C\nr20gI7Wsgqiqymh578kCAwEAAaNZMFcwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB\n/wQFMAMBAf8wHQYDVR0OBBYEFD0UWPlCB/peLcpwVQ/gOueNxkmHMBUGA1UdEQQO\nMAyCCmt1YmVybmV0ZXMwDQYJKoZIhvcNAQELBQADggEBAEvGB9he5arfnLHRyaLk\nK8jlU1szRVbxaBI2FYL7X8o2wkwJ+dkfuHesXG2NiHiJl1BqlT3Nz31rFfsmWTpP\n1gFM26+WukJ41g2LVVo9SQbrBhaNaYAPraPDn1Tebw0D48QJ55OgF5wUtxrdt/IN\nos5ahB8nNrYdRWbQb43EfZDge+51uoVj6Gh7c78stcLs3plr6E0g0SUQv7bueyqX\n43UyOmf0WpBJqsDu8S3v1uOQcJraQudfMYYIPfFXSktcRuGbk6g/3WTu4JpLVmWX\nNVr0maNfgt/DB0QX28HOaEJ2ZUnCFbSEaXTn0CK+cu082Q/s8GeGogiG87aDh1mZ\nbVw=\n-----END CERTIFICATE-----\n"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/description": "Contains a CA bundle that can be used to verify the kube-apiserver when using internal endpoints such as the internal service IP or kubernetes.default.svc. No other usage is guaranteed across distributions of Kubernetes clusters."
+                },
+                "creationTimestamp": "2022-07-10T10:16:42Z",
+                "name": "kube-root-ca.crt",
+                "namespace": "default",
+                "resourceVersion": "419",
+                "uid": "1d2db10f-500b-407e-bef1-536bf419c6ed"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "data": {
+                "nginx.conf": "server {\n    listen 80;\n    server_name  netology.ru www.netology.ru;\n    access_log  /var/log/nginx/domains/netology.ru-access.log  main;\n    error_log   /var/log/nginx/domains/netology.ru-error.log info;\n    location / {\n        include proxy_params;\n        proxy_pass http://10.10.10.10:8080/;\n    }\n}\n"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "creationTimestamp": "2022-08-05T06:22:35Z",
+                "name": "nginx-config",
+                "namespace": "default",
+                "resourceVersion": "3116216",
+                "uid": "9cc595e6-2978-46b4-80df-9af6764c8aa9"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "data": {
+                "vault.hcl": "disable_mlock = true\nui = true\napi_addr = \"http://vault:8200\"\n\nlistener \"tcp\" {\n  address = \"[::]:8200\"\n  tls_disable = 1\n  #tls_cert_file = \"/vault/userconfig/tls-server/server.crt\"\n  #tls_key_file = \"/vault/userconfig/tls-server/server.key\"\n  #tls_ca_cert_file = \"/vault/userconfig/tls-ca/ca.crt\"\n}\nstorage \"file\" {\n  path = \"/vault/data\"\n}\n"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"vault.hcl\":\"disable_mlock = true\\nui = true\\napi_addr = \\\"http://vault:8200\\\"\\n\\nlistener \\\"tcp\\\" {\\n  address = \\\"[::]:8200\\\"\\n  tls_disable = 1\\n  #tls_cert_file = \\\"/vault/userconfig/tls-server/server.crt\\\"\\n  #tls_key_file = \\\"/vault/userconfig/tls-server/server.key\\\"\\n  #tls_ca_cert_file = \\\"/vault/userconfig/tls-ca/ca.crt\\\"\\n}\\nstorage \\\"file\\\" {\\n  path = \\\"/vault/data\\\"\\n}\\n\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{},\"name\":\"vault-config\",\"namespace\":\"default\"}}\n"
+                },
+                "creationTimestamp": "2022-08-03T13:29:11Z",
+                "name": "vault-config",
+                "namespace": "default",
+                "resourceVersion": "2799087",
+                "uid": "ca594f5b-8f89-4a6a-bde0-87ff5d6c3224"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
