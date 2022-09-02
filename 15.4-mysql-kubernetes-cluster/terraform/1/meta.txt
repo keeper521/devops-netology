@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - name: keeper
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa XXXXXXXXXXXXXXXXXXXXXX== keeper@localhost.localdomain
+
+runcmd:
+  - yum install httpd -y
+  - service httpd start
+  - chkconfig httpd on
+  - cd /var/www/html
+  - echo "<html><body><img src="https://storage.yandexcloud.net/keeper2022/Privet.jpg"><body></html>" > index.html
